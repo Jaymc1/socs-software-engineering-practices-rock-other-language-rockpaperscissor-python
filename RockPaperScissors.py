@@ -5,6 +5,10 @@ from ConfigFromFile import get_config
 def display(message):
     print(message)
 
+def get_player_name():
+    player_name = input("Please enter your name: ")
+    return player_name
+
 def get_input_string(message):
     return input(message)
 
@@ -12,10 +16,11 @@ def get_input_int(message):
     return int(get_input_string(message))
 
 def determine_winner(player, computer):
+    player_name = get_player_name()
     if player == computer:
         result = "Draw"
     elif (player + 1)%3 == computer:
-        result = "Player wins"
+        result = player_name + " wins"
     elif (computer + 1)%3 == player:
         result = "Computer Wins"
     return result
